@@ -1,0 +1,12 @@
+language: java
+jdk: openjdk12
+sudo: false
+install: true
+script: mvn clean package -DskipTests=true
+notifications:
+  email:
+    recipients: "-quaresma_08@mail.ru"
+    on_success: never
+    on_failure: always
+services:
+- postgresql
