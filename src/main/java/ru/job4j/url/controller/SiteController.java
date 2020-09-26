@@ -15,17 +15,18 @@ import java.util.Map;
 
 /**
  * @author Sir-Hedgehog (mailto:quaresma_08@mail.ru)
- * @version 1.0
- * @since 20.09.2020
+ * @version 2.0
+ * @since 26.09.2020
  */
 
 @RestController
 @RequestMapping("/")
 public class SiteController {
+    private static final Logger LOG = LoggerFactory.getLogger(SiteController.class);
+
     private final SiteRepository sites;
     private final UrlRepository urls;
     private BCryptPasswordEncoder encoder;
-    private static final Logger LOG = LoggerFactory.getLogger(SiteController.class);
 
     public SiteController(SiteRepository sites, UrlRepository urls, BCryptPasswordEncoder encoder) {
         this.sites = sites;
@@ -81,7 +82,7 @@ public class SiteController {
     @GetMapping("/redirect/{unique_key}")
     public ResponseEntity<String> redirect(@PathVariable(value = "unique_key") String uniqueKey) {
         Url url = urls.findByKey(uniqueKey);
-        url.setTotal();
+        urls.updateUrlTotal(url.getId());
         this.urls.save(url);
         return new ResponseEntity<>("HTTP CODE: 302. REDIRECT: " + url.getUrl(), HttpStatus.FOUND);
     }

@@ -17,16 +17,18 @@ import ru.job4j.url.service.UserDetailsServiceImplementation;
 
 /**
  * @author Sir-Hedgehog (mailto:quaresma_08@mail.ru)
- * @version 1.0
- * @since 20.09.2020
+ * @version 2.0
+ * @since 26.09.2020
  */
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
-    private UserDetailsServiceImplementation userDetailsService;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
     private static final String SIGN_UP_URL = "/registration";
     private static final String REDIRECT_URL = "/redirect/*";
+    
+    private UserDetailsServiceImplementation userDetailsService;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    
 
     public WebSecurity(UserDetailsServiceImplementation userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsService = userDetailsService;

@@ -7,8 +7,8 @@ import java.util.Random;
 
 /**
  * @author Sir-Hedgehog (mailto:quaresma_08@mail.ru)
- * @version 1.0
- * @since 20.09.2020
+ * @version 2.0
+ * @since 26.09.2020
  */
 
 @Entity(name = "Urls")
@@ -62,10 +62,6 @@ public class Url {
                 .limit(targetStringLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
-    }
-
-    public void setTotal() {
-        total = ++total;
     }
 
     public int getTotal() {

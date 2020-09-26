@@ -19,8 +19,8 @@ import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
 /**
  * @author Sir-Hedgehog (mailto:quaresma_08@mail.ru)
- * @version 1.0
- * @since 20.09.2020
+ * @version 2.0
+ * @since 26.09.2020
  */
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -28,6 +28,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
     public static final long EXPIRATION_TIME = 864_000_000;
+
     private AuthenticationManager auth;
 
     public AuthenticationFilter(AuthenticationManager auth) {
