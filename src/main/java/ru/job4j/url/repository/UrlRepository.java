@@ -36,7 +36,7 @@ public interface UrlRepository extends CrudRepository<Url, Integer> {
 
     /**
      * Метод инкрементирует значение посещения url-адреса
-     * @param urlId - идентификатор гкд
+     * @param urlId - идентификатор url
      */
 
     @Modifying
